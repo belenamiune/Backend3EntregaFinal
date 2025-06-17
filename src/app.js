@@ -10,8 +10,10 @@ import mocksRouter from "./routes/mocks.router.js";
 import { swaggerSpec, swaggerUi } from "./config/swagger.js";
 
 const app = express();
-const PORT = process.env.PORT || 3001;
-const connection = mongoose.connect("mongodb://localhost:27017/mocks-db");
+
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost:27017/mocks-db"
+);
 
 app.use(express.json());
 app.use(cookieParser());
@@ -29,4 +31,4 @@ app.get("/", (req, res) => {
   );
 });
 
-app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+export default app;

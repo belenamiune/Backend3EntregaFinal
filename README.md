@@ -1,28 +1,89 @@
-# Backend 3 - Entrega final
+# AdoptMe API - Entrega Final Backend III (Coderhouse)
 
-Microservicio en Node.js + Express + MongoDB (Mongoose) que genera datos mock de usuarios y mascotas, los expone vía endpoints y permite insertarlos en base de datos para su verificación.
+Microservicio en Node.js + Express + MongoDB que gestiona adopciones de mascotas, permite generar datos mockeados, testear endpoints y está completamente dockerizado para su despliegue.
 
-📚 Proyecto entregado para el curso Backend III: Testing y Escalabilidad – Coderhouse
+📚 Proyecto Final - Backend III: Testing y Escalabilidad - Coderhouse
 
 ---
 
-## ⚙️ Prerrequisitos
+## 🔧 Tecnologías utilizadas
 
+- Node.js 20
+- Express.js
+- MongoDB + Mongoose
 - FakerJS
 - Bcrypt
-- Express
-- MongoDB + Mongoose
+- Docker
+- Swagger (OpenAPI)
+- Mocha + Chai + Supertest (Tests Funcionales)
+
+---
+
+## 🚀 Instalación local (modo desarrollo)
+
+1️⃣ Clonar el repositorio:
 
 ## 🚀 Instalación
 
 Cloná el repositorio:
 
 ```bash
-git clone https://github.com/belenamiune/Backend3PrimeraPreentrega
-cd primeraPreentrega
+git clone https://github.com/belenamiune/Backend3EntregaFinal
+cd entregaFinal
 npm install
 
 ```
+
+## 📑 Documentación Swagger
+
+Acceder vía:
+http://localhost:3000/api/docs
+
+## 🧪 Tests funcionales
+
+Se encuentran desarrollados los tests funcionales completos para el router adoption.router.js.
+
+Para ejecutar los tests:
+
+```
+npm test
+```
+
+Se utilizan Supertest, Mocha y Chai bajo entorno ES Modules.
+
+## 🐳 Dockerización
+
+El proyecto está dockerizado.
+
+Build de la imagen:
+
+```bash
+docker build -t belenamiune8/adoptme-app:latest .
+```
+
+Pull desde DockerHub
+
+```bash
+docker pull belenamiune8/adoptme-app:latest
+```
+
+Ejecución del contenedor:
+
+```
+docker run -p 3000:3000 \
+  -e MONGODB_URI=mongodb://host.docker.internal:27017/mocks-db \
+  belenamiune8/adoptme-app:latest
+```
+
+Importante: El string de conexión puede modificarse según el entorno (local o Atlas).
+
+## 📦 Imagen publicada en DockerHub
+
+La imagen se encuentra publicada de forma pública:
+
+🔗 https://hub.docker.com/r/belenamiune8/adoptme-app
+
+Puede ser descargada y ejecutada por cualquier usuario de DockerHub.
 
 ## 🔗 Endpoints disponibles
 
