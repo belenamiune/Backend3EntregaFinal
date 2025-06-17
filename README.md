@@ -19,10 +19,6 @@ Microservicio en Node.js + Express + MongoDB que gestiona adopciones de mascotas
 
 ---
 
-## 🚀 Instalación local (modo desarrollo)
-
-1️⃣ Clonar el repositorio:
-
 ## 🚀 Instalación
 
 Cloná el repositorio:
