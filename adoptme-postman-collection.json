@@ -1,0 +1,189 @@
+{
+  "info": {
+    "name": "AdoptMe API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Bel\\u00e9n\",\n  \"last_name\": \"Amiune\",\n  \"email\": \"belen@example.com\",\n  \"password\": \"coder123\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/sessions/register",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "sessions",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"belen@example.com\",\n  \"password\": \"coder123\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/sessions/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "sessions",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get all users",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/users",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get all pets",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/pets",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "pets"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Generate Mock Users",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/mocks/mockingusers?qty=3",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "mocks",
+            "mockingusers"
+          ],
+          "query": [
+            {
+              "key": "qty",
+              "value": "3"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Generate Mock Pets",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/mocks/mockingpets?qty=3",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "mocks",
+            "mockingpets"
+          ],
+          "query": [
+            {
+              "key": "qty",
+              "value": "3"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Generate Mock Data",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"users\": 2,\n  \"pets\": 2\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/mocks/generateData",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "mocks",
+            "generateData"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get all adoptions",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/adoptions",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "adoptions"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3001"
+    }
+  ]
+}

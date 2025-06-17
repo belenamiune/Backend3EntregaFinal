@@ -25,6 +25,27 @@ router.get("/", petsController.getAllPets);
 
 /**
  * @swagger
+ * /api/pets/{uid}:
+ *   get:
+ *     summary: Get a pet by ID
+ *     tags: [Pets]
+ *     parameters:
+ *       - in: path
+ *         name: uid
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The pet ID
+ *     responses:
+ *       200:
+ *         description: Pet found.
+ *       404:
+ *         description: Pet not found.
+ */
+router.get("/:uid", petsController.getPet);
+
+/**
+ * @swagger
  * /api/pets:
  *   post:
  *     summary: Create a new pet
