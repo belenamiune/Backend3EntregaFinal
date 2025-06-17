@@ -7,13 +7,20 @@ const swaggerOptions = {
     info: {
       title: "AdoptMe API",
       version: "1.0.0",
-      description: "API de entrega final Backend III - Coderhouse",
+      description: "Proyecto final - Backend III - Coderhouse",
     },
     servers: [
       {
         url: "http://localhost:3001",
-        description: "Local server",
+        description: "Local development server",
       },
+    ],
+    tags: [
+      { name: "Users", description: "User operations" },
+      { name: "Pets", description: "Pet management" },
+      { name: "Mocks", description: "Mock generation of users and pets" },
+      { name: "Adoptions", description: "Pet adoption operations" },
+      { name: "Sessions", description: "Authentication and sessions" },
     ],
   },
   apis: ["./src/routes/*.js"],

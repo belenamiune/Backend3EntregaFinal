@@ -37,12 +37,20 @@ http://localhost:3000/api/docs
 
 ## 🧪 Tests funcionales
 
-Se encuentran desarrollados los tests funcionales completos para el router adoption.router.js.
+Se encuentran desarrollados los tests funcionales completos para todos los routers.
 
 Para ejecutar los tests:
 
+#### En conjunto
+
 ```
 npm test
+```
+
+#### Por separado
+
+```
+npx mocha src/test/pets.test.js
 ```
 
 Se utilizan Supertest, Mocha y Chai bajo entorno ES Modules.

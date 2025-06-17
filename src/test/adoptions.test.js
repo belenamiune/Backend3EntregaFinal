@@ -12,7 +12,7 @@ const expect = chai.expect;
 
 const MONGO_TEST_URL = "mongodb://localhost:27017/mocks-db";
 
-describe("Functional tests: adoption.router.js (Supertest limpio)", () => {
+describe("Functional tests: adoption.router.js", () => {
   let userId;
   let petId;
   let adoptionId;

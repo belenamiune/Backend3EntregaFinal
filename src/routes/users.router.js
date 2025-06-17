@@ -1,16 +1,23 @@
 import { Router } from "express";
 import usersController from "../controllers/users.controller.js";
-
 const router = Router();
+
+/**
+ * @swagger
+ * tags:
+ *   name: Users
+ *   description: User management endpoints
+ */
 
 /**
  * @swagger
  * /api/users:
  *   get:
- *     summary: Obtener todos los usuarios
+ *     summary: Get all users
+ *     tags: [Users]
  *     responses:
  *       200:
- *         description: Lista de usuarios obtenida correctamente.
+ *         description: Successfully retrieved the list of users.
  */
 router.get("/", usersController.getAllUsers);
 
@@ -18,18 +25,20 @@ router.get("/", usersController.getAllUsers);
  * @swagger
  * /api/users/{uid}:
  *   get:
- *     summary: Obtener un usuario por ID
+ *     summary: Get a user by ID
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: uid
  *         required: true
  *         schema:
  *           type: string
+ *         description: The user ID
  *     responses:
  *       200:
- *         description: Usuario encontrado.
+ *         description: User found.
  *       404:
- *         description: Usuario no encontrado.
+ *         description: User not found.
  */
 router.get("/:uid", usersController.getUser);
 
@@ -37,28 +46,34 @@ router.get("/:uid", usersController.getUser);
  * @swagger
  * /api/users/{uid}:
  *   put:
- *     summary: Actualizar un usuario por ID
+ *     summary: Update a user by ID
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: uid
  *         required: true
  *         schema:
  *           type: string
+ *         description: The user ID
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
- *             example:
- *               first_name: "NuevoNombre"
- *               last_name: "NuevoApellido"
- *               email: "nuevoemail@example.com"
+ *             properties:
+ *               first_name:
+ *                 type: string
+ *               last_name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *                 format: email
  *     responses:
  *       200:
- *         description: Usuario actualizado.
+ *         description: User updated successfully.
  *       404:
- *         description: Usuario no encontrado.
+ *         description: User not found.
  */
 router.put("/:uid", usersController.updateUser);
 
@@ -66,18 +81,20 @@ router.put("/:uid", usersController.updateUser);
  * @swagger
  * /api/users/{uid}:
  *   delete:
- *     summary: Eliminar un usuario por ID
+ *     summary: Delete a user by ID
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: uid
  *         required: true
  *         schema:
  *           type: string
+ *         description: The user ID
  *     responses:
  *       200:
- *         description: Usuario eliminado.
+ *         description: User deleted successfully.
  *       404:
- *         description: Usuario no encontrado.
+ *         description: User not found.
  */
 router.delete("/:uid", usersController.deleteUser);
 
